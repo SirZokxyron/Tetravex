@@ -24,7 +24,7 @@ INCOPT = -I$(INC)
 CMPOPT = -g -Wall $(INCOPT)
 
 # Executable files
-EXEFILES = test_name
+EXEFILES = test_2x2
 
 ##################################
 #            Default             #
@@ -59,11 +59,17 @@ all : $(EXEFILES)
 # package.o : package.c header.h
 # package2.o : package2.c header2.h package.o
 
+boolean.o : $(LIB)boolean.c $(INC)boolean.h
+tetravex.o : $(LIB)tetravex.c $(INC)tetravex.h boolean.o
+test_2x2.o : $(EXE)test_2x2.c tetravex.o
+
 ###############
 # Executables #
 ###############
 
 # executable : package.o package2.o
+
+test_2x2 : test_2x2.o tetravex.o boolean.o
 
 ##################################
 #      Directory Cleaning        #
@@ -71,8 +77,8 @@ all : $(EXEFILES)
 
 clean :
 	@echo "Cleaning .o files"
-	rm -f *.o 2> /dev/null
+	rm -f *.o 2>/dev/null
 
 clear :
 	@echo "Cleaning executables"
-	rm -f $(EXEFILES) 2> /dev/null
+	rm -f $(EXEFILES) 2>/dev/null
