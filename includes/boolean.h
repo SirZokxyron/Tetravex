@@ -13,4 +13,7 @@
     //* Return negative of an expression
     expression neg(expression e);
 
+    //* Combine a given string with a given expression
+    string concat_exp(string str, expression exp);
+
 #endif
