@@ -24,7 +24,7 @@ INCOPT = -I$(INC)
 CMPOPT = -g -Wall $(INCOPT)
 
 # Executable files
-EXEFILES = test_2x2
+EXEFILES = test_display_config
 
 ##################################
 #            Default             #
@@ -61,7 +61,7 @@ all : $(EXEFILES)
 
 boolean.o : $(LIB)boolean.c $(INC)boolean.h
 tetravex.o : $(LIB)tetravex.c $(INC)tetravex.h boolean.o
-test_2x2.o : $(EXE)test_2x2.c tetravex.o
+test_display_config.o : $(EXE)test_display_config.c tetravex.o
 
 ###############
 # Executables #
@@ -69,7 +69,7 @@ test_2x2.o : $(EXE)test_2x2.c tetravex.o
 
 # executable : package.o package2.o
 
-test_2x2 : test_2x2.o tetravex.o boolean.o
+test_display_config : test_display_config.o tetravex.o boolean.o
 
 ##################################
 #      Directory Cleaning        #
