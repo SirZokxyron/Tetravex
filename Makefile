@@ -38,15 +38,15 @@ all : $(EXEFILES)
 
 %.o : $(LIB)%.c
 	@echo "Compiling package "$*
-	$(CC) -c $(CMPOPT) $<
+	@$(CC) -c $(CMPOPT) $<
 
 %.o : $(EXE)%.c
 	@echo "Compiling test "$*
-	$(CC) -c $(CMPOPT) $<
+	@$(CC) -c $(CMPOPT) $<
 
 % : %.o
 	@echo "Creating executable "$@
-	$(CC) $^ $(LNKOPT) -o $@
+	@$(CC) $^ $(LNKOPT) -o $@
 
 ##################################
 #      Project compilation       #
@@ -77,8 +77,8 @@ test_2x2 : test_2x2.o tetravex.o boolean.o
 
 clean :
 	@echo "Cleaning .o files"
-	rm -f *.o 2>/dev/null
+	@rm -f *.o 2>/dev/null
 
 clear :
 	@echo "Cleaning executables"
-	rm -f $(EXEFILES) 2>/dev/null
+	@rm -f $(EXEFILES) 2>/dev/null
