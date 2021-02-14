@@ -29,11 +29,11 @@
     //* Returns a grid with the correct given size and allocates the memory for the square array
     grid init_grid(int size);
 
-    //* Returns a square with the correct given numbers around it and allocates the memory for every boolean array
+    //* Returns a square with the correct given numbers around it and allocates the memory for every coordinate boolean array
     square init_square(grid tetravex, int number_up, int number_right, int number_down, int number_left);
 
     //? Debug function to print out square parameters
-    void debug_square(square piece, int name);
+    void debug_square(grid tetravex, square piece, int name);
 
     //* Reads a given file to init a grid with squares inside
     grid read_grid(string filename);
