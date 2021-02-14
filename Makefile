@@ -24,7 +24,7 @@ INCOPT = -I$(INC)
 CMPOPT = -g -Wall $(INCOPT)
 
 # Executable files
-EXEFILES = test_display_config
+EXEFILES = test_display_config test_coord_unicity
 
 ##################################
 #            Default             #
@@ -59,9 +59,12 @@ all : $(EXEFILES)
 # package.o : package.c header.h
 # package2.o : package2.c header2.h package.o
 
-boolean.o : $(LIB)boolean.c $(INC)boolean.h
+boolean.o : $(LIB)boolean.c  $(INC)boolean.h
 tetravex.o : $(LIB)tetravex.c $(INC)tetravex.h boolean.o
 test_display_config.o : $(EXE)test_display_config.c tetravex.o
+
+logic.o : $(LIB)logic.c $(INC)logic.h tetravex.o
+test_coord_unicity.o : $(EXE)test_coord_unicity.c logic.o
 
 ###############
 # Executables #
@@ -70,6 +73,7 @@ test_display_config.o : $(EXE)test_display_config.c tetravex.o
 # executable : package.o package2.o
 
 test_display_config : test_display_config.o tetravex.o boolean.o
+test_coord_unicity : test_coord_unicity.o logic.o tetravex.o boolean.o
 
 ##################################
 #      Directory Cleaning        #
