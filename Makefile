@@ -24,7 +24,7 @@ INCOPT = -I$(INC)
 CMPOPT = -g -Wall $(INCOPT)
 
 # Executable files
-EXEFILES = test_display_config test_coord_unicity
+EXEFILES = test_display test_coord_unicity
 
 ##################################
 #            Default             #
@@ -61,7 +61,7 @@ all : $(EXEFILES)
 
 boolean.o : $(LIB)boolean.c  $(INC)boolean.h
 tetravex.o : $(LIB)tetravex.c $(INC)tetravex.h boolean.o
-test_display_config.o : $(EXE)test_display_config.c tetravex.o
+test_display.o : $(EXE)test_display.c tetravex.o
 
 logic.o : $(LIB)logic.c $(INC)logic.h tetravex.o
 test_coord_unicity.o : $(EXE)test_coord_unicity.c logic.o
@@ -72,7 +72,7 @@ test_coord_unicity.o : $(EXE)test_coord_unicity.c logic.o
 
 # executable : package.o package2.o
 
-test_display_config : test_display_config.o tetravex.o boolean.o
+test_display : test_display.o tetravex.o boolean.o
 test_coord_unicity : test_coord_unicity.o logic.o tetravex.o boolean.o
 
 ##################################

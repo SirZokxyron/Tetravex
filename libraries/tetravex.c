@@ -35,13 +35,13 @@ square init_square(grid tetravex, int number_up, int number_right, int number_do
 //? Debug function to print out square parameters
 void debug_square(grid tetravex, square piece, int name) {
     printf("square %d :\n", name);
-    printf("bool_x : ");
+    printf(" bool_x : ");
     for(int x_i = 0; x_i < tetravex.size; x_i++) printf("%d ", piece.bool_x[x_i]);
-    printf("\nbool_y : ");
+    printf("\n bool_y : ");
     for(int y_i = 0; y_i < tetravex.size; y_i++) printf("%d ", piece.bool_y[y_i]);
-    printf("\n  %d  \n", piece.number_up);
-    printf(" %d %d \n", piece.number_left, piece.number_right);
-    printf("  %d  \n\n", piece.number_down);
+    printf("\n  /%d\\ \n", piece.number_up);
+    printf("  %d %d \n", piece.number_left, piece.number_right);
+    printf("  \\%d/ \n\n", piece.number_down);
 }
 
 //* Reads a given file to init a grid with squares inside
