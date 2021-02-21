@@ -77,6 +77,6 @@ void non_superposition(grid tetravex, FILE * filepointer) {
 }
 
 //* Return the string combination representing the CNJ form of "number logic" for each square
-void number_logif(grid tetravex, FILE * filepointer) {
+void number_logic(grid tetravex, FILE * filepointer) {
     return;
 }
