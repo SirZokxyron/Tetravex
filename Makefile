@@ -24,7 +24,7 @@ INCOPT = -I$(INC)
 CMPOPT = -g -Wall $(INCOPT)
 
 # Executable files
-EXEFILES = test_display test_coord_unicity
+EXEFILES = test_display test_coord_unicity test_non_superposition
 
 ##################################
 #            Default             #
@@ -66,6 +66,8 @@ test_display.o : $(EXE)test_display.c tetravex.o
 logic.o : $(LIB)logic.c $(INC)logic.h tetravex.o
 test_coord_unicity.o : $(EXE)test_coord_unicity.c logic.o
 
+test_non_superposition.o : $(EXE)test_non_superposition.c logic.o
+
 ###############
 # Executables #
 ###############
@@ -74,6 +76,7 @@ test_coord_unicity.o : $(EXE)test_coord_unicity.c logic.o
 
 test_display : test_display.o tetravex.o boolean.o
 test_coord_unicity : test_coord_unicity.o logic.o tetravex.o boolean.o
+test_non_superposition : test_non_superposition.o logic.o tetravex.o boolean.o
 
 ##################################
 #      Directory Cleaning        #
