@@ -5,6 +5,7 @@ void header(grid tetravex, FILE * filepointer) {
     return;
 }
 
+//! Not working past 2x2
 //* Return the string combination representing the CNJ form of "coordinate unicity" for each square
 void coord_unicity(grid tetravex, FILE * filepointer) {
     for(int square_i = 0; square_i < (tetravex.size * tetravex.size); square_i++) {
@@ -33,6 +34,7 @@ void coord_unicity(grid tetravex, FILE * filepointer) {
     }
 }
 
+//! Not working past 2x2
 //* Return the string combination representing the CNJ form of "non superposition" for each square combo
 void non_superposition(grid tetravex, FILE * filepointer) {
     for(int square_1_i = 0; square_1_i < (tetravex.size * tetravex.size); square_1_i++) {

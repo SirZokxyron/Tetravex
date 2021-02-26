@@ -16,6 +16,7 @@
         int number_right;
         int number_down;
         int number_left;
+        //TODO : Array instead of single int
     } square;
 
     //* Grid structure, representing a grid of Tetravex
