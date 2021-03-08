@@ -1,22 +1,18 @@
 #ifndef _TETRAVEX_H_
 #define _TETRAVEX_H_
 
-#include "../includes/boolean.h"
+#include "../includes/types_macro.h"
 
 /* Data structures */
 
     //* Square structure, representing a square of Tetravex
     typedef struct square_ {
         //> The array with every boolean associated with a specific x position
-        expression * bool_x;
+        int * bool_x;
         //> The array with every boolean associated with a specific y position
-        expression * bool_y;        
-        //> Every number around the square
-        int number_up;
-        int number_right;
-        int number_down;
-        int number_left;
-        //TODO : Array instead of single int
+        int * bool_y;
+        //> The array with every number around the square : [ Top ; Right ; Bottom ; Left ]
+        int * numbers;
     } square;
 
     //* Grid structure, representing a grid of Tetravex

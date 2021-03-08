@@ -3,16 +3,35 @@
 
 #include "../includes/tetravex.h"
 
-//* Return the string combination representing the CNJ form of the "header" for the file
-void header(grid tetravex, FILE * filepointer);
+/* Data structures */
 
-//* Return the string combination representing the CNJ form of "coordinate unicity" for each square
-void coord_unicity(grid tetravex, FILE * filepointer);
+    //* Structure essentially representing one clause of int
+    typedef struct clause_ {
+        //TODO: Data structure to hold one clause
+    } clause;
 
-//* Return the string combination representing the CNJ form of "non superposition" for each square combo
-void non_superposition(grid tetravex, FILE * filepointer);
+    //* Structure essentially representing all of our clauses
+    typedef struct cnf_env_ {
+        //TODO: Data structure to hold many clauses
+    } cnf_env;
 
-//* Return the string combination representing the CNJ form of "number logic" for each square
-void number_logic(grid tetravex, FILE * filepointer);
+/* Functions */
+
+    //TODO: Initialize one clause
+    //! This function may be useless of the clause doesn't require it, the coder knows best
+
+    //TODO: Modify one clause (add an int to the clause)
+
+    //TODO: Initialize one cnf_env
+    //! This function is mandatory as the number of clause will always be the same depending of the grid size
+
+    //TODO: Modify one cnf_env (add a clause to the cnf_env)
+
+    //TODO: Output a given cnf_env to a DIMACS file
+    //! DIMACS format:
+    //> p cnf [n literals] [n clauses]
+    //> [clause 1] 0
+    //> ... 0
+    //> [clause n] 0 
 
 #endif

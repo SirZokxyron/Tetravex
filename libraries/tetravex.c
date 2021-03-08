@@ -20,14 +20,15 @@ square init_square(grid tetravex, int number_up, int number_right, int number_do
     square new_square;
 
     //> Update the numbers around the square
-    new_square.number_up = number_up;
-    new_square.number_right = number_right;
-    new_square.number_down = number_down;
-    new_square.number_left = number_left;
+    new_square.numbers = (int *)malloc(4 * sizeof(int));
+    new_square.numbers[0] = number_up;
+    new_square.numbers[1] = number_right;
+    new_square.numbers[2] = number_down;
+    new_square.numbers[3] = number_left;
     
     //> Allocates the right amount of expression memory
-    new_square.bool_x = (expression *)malloc(tetravex.size * sizeof(expression));
-    new_square.bool_y = (expression *)malloc(tetravex.size * sizeof(expression));
+    new_square.bool_x = (int *)malloc(tetravex.size * sizeof(int));
+    new_square.bool_y = (int *)malloc(tetravex.size * sizeof(int));
     
     return new_square;
 }
@@ -39,9 +40,9 @@ void debug_square(grid tetravex, square piece, int name) {
     for(int x_i = 0; x_i < tetravex.size; x_i++) printf("%d ", piece.bool_x[x_i]);
     printf("\n bool_y : ");
     for(int y_i = 0; y_i < tetravex.size; y_i++) printf("%d ", piece.bool_y[y_i]);
-    printf("\n  /%d\\ \n", piece.number_up);
-    printf("  %d %d \n", piece.number_left, piece.number_right);
-    printf("  \\%d/ \n\n", piece.number_down);
+    printf("\n  /%d\\ \n", piece.numbers[0]);
+    printf("  %d %d \n", piece.numbers[3], piece.numbers[1]);
+    printf("  \\%d/ \n\n", piece.numbers[2]);
 }
 
 //* Reads a given file to init a grid with squares inside
@@ -84,7 +85,7 @@ grid read_grid(string filename) {
     }
 
     //> Filling up boolean literal for every coordinate of every square
-    expression literal = 1;
+    int literal = 1;
     for (int square_i = 0; square_i < (new_grid.size * new_grid.size); square_i++) {
         for (int bool_i = 0; bool_i < new_grid.size; bool_i++) {
             new_grid.tab[square_i].bool_x[bool_i] = literal;
