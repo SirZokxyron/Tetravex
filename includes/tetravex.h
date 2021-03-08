@@ -35,4 +35,7 @@
     //* Reads a given file to init a grid with squares inside
     grid read_grid(string filename);
 
+    //* Print a given grid to the screen with a pretty display
+    void print_grid(grid tetravex);
+
 #endif

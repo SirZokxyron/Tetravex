@@ -40,9 +40,9 @@ void debug_square(grid tetravex, square piece, int name) {
     for(int x_i = 0; x_i < tetravex.size; x_i++) printf("%d ", piece.bool_x[x_i]);
     printf("\n bool_y : ");
     for(int y_i = 0; y_i < tetravex.size; y_i++) printf("%d ", piece.bool_y[y_i]);
-    printf("\n  /%d\\ \n", piece.numbers[0]);
-    printf("  %d %d \n", piece.numbers[3], piece.numbers[1]);
-    printf("  \\%d/ \n\n", piece.numbers[2]);
+    printf("\n  ■ %d ■ \n", piece.numbers[0]);
+    printf("  %d ● %d \n", piece.numbers[3], piece.numbers[1]);
+    printf("  ■ %d ■ \n\n", piece.numbers[2]);
 }
 
 //* Reads a given file to init a grid with squares inside
@@ -96,4 +96,38 @@ grid read_grid(string filename) {
     }
 
     return new_grid;
+}
+
+//* Print a given grid to the screen with a pretty display
+//TODO: Comment this function
+void print_grid(grid tetravex) {
+
+    int n = tetravex.size;
+
+    string top_bot_tmp = "■ x ■";
+    string mid_tmp = "x   x";
+
+    for(int line_i = 0; line_i < n; line_i++) {
+        string line_top = (string)malloc((6 * n) * strlen(top_bot_tmp));
+        string line_mid = (string)malloc((6 * n) * strlen(mid_tmp));
+        string line_bot = (string)malloc((6 * n) * strlen(top_bot_tmp));
+        
+        for(int square_i = 0; square_i < n; square_i++) {
+            string buffer_top = (string)malloc(6 * strlen(top_bot_tmp));
+            string buffer_mid = (string)malloc(6 * strlen(mid_tmp));
+            string buffer_bot = (string)malloc(6 * strlen(top_bot_tmp));
+
+            sprintf(buffer_top, "■ %d ■ ", tetravex.tab[(line_i * n) + square_i].numbers[0]);
+            sprintf(buffer_mid, "%d   %d ", tetravex.tab[(line_i * n) + square_i].numbers[3], tetravex.tab[(line_i * n) + square_i].numbers[1]);
+            sprintf(buffer_bot, "■ %d ■ ", tetravex.tab[(line_i * n) + square_i].numbers[2]);
+            
+            strcat(line_top, buffer_top);
+            strcat(line_mid, buffer_mid);
+            strcat(line_bot, buffer_bot);
+        }
+
+        printf("%s\n", line_top);
+        printf("%s\n", line_mid);
+        printf("%s\n", line_bot);
+    }
 }
