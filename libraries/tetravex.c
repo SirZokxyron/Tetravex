@@ -41,7 +41,7 @@ void debug_square(grid tetravex, square piece, int name) {
     printf("\n bool_y : ");
     for(int y_i = 0; y_i < tetravex.size; y_i++) printf("%d ", piece.bool_y[y_i]);
     printf("\n  ■ %d ■ \n", piece.numbers[0]);
-    printf("  %d ● %d \n", piece.numbers[3], piece.numbers[1]);
+    printf("  %d   %d \n", piece.numbers[3], piece.numbers[1]);
     printf("  ■ %d ■ \n\n", piece.numbers[2]);
 }
 
