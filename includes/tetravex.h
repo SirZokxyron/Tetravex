@@ -11,7 +11,7 @@
         int * bool_x;
         //> The array with every boolean associated with a specific y position
         int * bool_y;
-        //> The array with every number around the square : [ Top ; Right ; Bottom ; Left ]
+        //> The array with every number around the square : [ (0)Top ; (1)Right ; (2)Bottom ; (3)Left ]
         int * numbers;
     } square;
 

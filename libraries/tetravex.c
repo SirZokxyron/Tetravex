@@ -108,9 +108,9 @@ void print_grid(grid tetravex) {
     string mid_tmp = "x   x";
 
     for(int line_i = 0; line_i < n; line_i++) {
-        string line_top = (string)malloc((6 * n) * strlen(top_bot_tmp));
-        string line_mid = (string)malloc((6 * n) * strlen(mid_tmp));
-        string line_bot = (string)malloc((6 * n) * strlen(top_bot_tmp));
+        string line_top = (string)malloc(n * strlen(top_bot_tmp));
+        string line_mid = (string)malloc(n * strlen(mid_tmp));
+        string line_bot = (string)malloc(n * strlen(top_bot_tmp));
         
         for(int square_i = 0; square_i < n; square_i++) {
             string buffer_top = (string)malloc(6 * strlen(top_bot_tmp));
@@ -126,8 +126,8 @@ void print_grid(grid tetravex) {
             strcat(line_bot, buffer_bot);
         }
 
-        printf("%s\n", line_top);
-        printf("%s\n", line_mid);
+        printf("%s\n", line_top);   
+        printf("%s\n", line_mid);   
         printf("%s\n", line_bot);
     }
 }
