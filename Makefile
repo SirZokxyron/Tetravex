@@ -24,7 +24,7 @@ INCOPT = -I$(INC)
 CMPOPT = -g -Wall $(INCOPT)
 
 # Executable files
-EXEFILES = test_display test_logic
+EXEFILES = test_display test_logic test_rule test_rule
 
 ##################################
 #            Default             #
@@ -63,6 +63,7 @@ tetravex.o : $(LIB)tetravex.c $(INC)tetravex.h
 test_display.o : $(EXE)test_display.c tetravex.o
 logic.o : $(LIB)logic.c $(INC)logic.h tetravex.o
 test_logic.o : $(EXE)test_logic.c logic.o tetravex.o
+test_rule.o : $(EXE)test_rule.c logic.o tetravex.o
 
 ###############
 # Executables #
@@ -72,6 +73,7 @@ test_logic.o : $(EXE)test_logic.c logic.o tetravex.o
 
 test_display : test_display.o tetravex.o
 test_logic : test_logic.o logic.o tetravex.o
+test_rule : test_rule.o logic.o tetravex.o
 
 ##################################
 #      Directory Cleaning        #

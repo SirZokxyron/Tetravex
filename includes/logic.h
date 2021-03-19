@@ -10,7 +10,7 @@
         //TODO: Data structure to hold one clause
         int size_tab;
         int * tab;
-        struct clause_ * suivant;
+        struct clause_ * next;
     } clause;
 
     //* Structure essentially representing all of our clauses
@@ -40,6 +40,15 @@
     //TODO: Printing cnf_env
     void print_env(cnf_env env);
 
+    //TODO: Concatenate two cnf_env
+    void concat_env(cnf_env * env1, cnf_env * env2);
+
+    //TODO: First rule - Coord Unicity
+    cnf_env coord_unicity(grid tetravex);
+
+    //TODO: Second rule - Non Superposition
+    cnf_env non_superposition(grid tetravex);
+
     //TODO: Output a given cnf_env to a DIMACS file
     //! DIMACS format:
     //> p cnf [n literals] [n clauses]
@@ -55,4 +64,7 @@
     //> if "SATISFIABLE" then
     //>     cat result.solve | grep "v "
 
+
 #endif
+        
+    
