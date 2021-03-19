@@ -97,15 +97,19 @@ cnf_env non_superposition(grid tetravex) {
         for(int square_i_p = square_i + 1; square_i_p < (n * n); square_i_p++) {
             for(int i = 0; i < n; i++) {
                 for(int j = 0; j < n; j++) {
-                    clause * clause_x = init_clause(3);
-                    clause * clause_x_p = init_clause(3);
-                    clause * clause_y = init_clause(3);
-                    clause * clause_y_p = init_clause(3);
+                    clause * clause_x = init_clause(4);
+                    clause * clause_x_p = init_clause(4);
+                    clause * clause_y = init_clause(4);
+                    clause * clause_y_p = init_clause(4);
 
-                    add_to_clause(clause_x, tetravex.tab[square_i].bool_x[i]);
-                    add_to_clause(clause_x_p, tetravex.tab[square_i_p].bool_x[i]);
-                    add_to_clause(clause_y, tetravex.tab[square_i].bool_y[i]);
-                    add_to_clause(clause_y_p, tetravex.tab[square_i_p].bool_y[i]);
+                    add_to_clause(clause_x, -(tetravex.tab[square_i].bool_x[i]));
+                    add_to_clause(clause_x, -(tetravex.tab[square_i_p].bool_x[i]));
+                    add_to_clause(clause_x_p, -(tetravex.tab[square_i_p].bool_x[i]));
+                    add_to_clause(clause_x_p, -(tetravex.tab[square_i].bool_x[i]));
+                    add_to_clause(clause_y, -(tetravex.tab[square_i].bool_y[i]));
+                    add_to_clause(clause_y, -(tetravex.tab[square_i_p].bool_y[i]));
+                    add_to_clause(clause_y_p, -(tetravex.tab[square_i_p].bool_y[i]));
+                    add_to_clause(clause_y_p, -(tetravex.tab[square_i].bool_y[i]));
 
                     add_to_clause(clause_x, -(tetravex.tab[square_i].bool_y[j]));
                     add_to_clause(clause_x, -(tetravex.tab[square_i_p].bool_y[j]));

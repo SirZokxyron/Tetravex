@@ -9,9 +9,9 @@ int main(int argc, string argv[]) {
     grid tetravex = read_grid(argv[1]);
 
     cnf_env env1 = coord_unicity(tetravex);
-    // cnf_env env2 = non_superposition(tetravex);
+    cnf_env env2 = non_superposition(tetravex);
 
-    // concat_env(&env1, &env2);
+    concat_env(&env1, &env2);
 
     print_env(env1);
 
