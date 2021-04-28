@@ -6,52 +6,43 @@
     #   ////////   //    //   //               //   ////////   ////////       #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-Authors : _Bensbia Hugo ; Rousselle Naomi ; Tellier Rozen Adjamé ; Romain Noé_
+Auteurs : _Bensbia Hugo ; Rousselle Naomi ; Tellier Rozen Adjamé ; Romain Noé_
 
-# Brief description
+# Utilisation du programme
 
-This repository contains our project at solving a game of Tetravex using Boolean logic with a SAT-Solver. It's part of our INF402 course at the Grenoble-Alpes-University.
+- Lancer le programme main.py avec python 3.7 ou supérieur.
+- *OPTIONNEL* ouvrir les logs
+- Charger une grille d'un fichier ou en la générant en indiquant la taille d'un coté.
+- Appliquer une ou plusieurs règles de logique.
+- Creer le fichier .cnf
+- Creer le fichier .output
+- Observer si la grille est resolvable
 
-# How we are doing it
+# Bref description
 
-In the first place, we need to describe the rule of a Tetravex using boolean logic. We'll determine the conditions of every **piece** of a **valid** grid of Tetravex. 
+Ce dossier contient notre projet qui consiste à résoudre une partie de Tetravex en utilisant la logique propositionnelle et un SAT-Solver. Ce projet fait parti de notre cours d'INF402 à l'Université-Grenoble-Alpes.
 
-Then we'll use an algorithm to combine these **static parameters** with our **instance** of the game to output a DIMACS file. 
+# Comment on procède
 
-Finally, using a SAT-Solver and the DIMACS file we'll be able to test the satisfiability of the instance of the game, which would indicate if it is possible to solve the grid and how to.
+Tout d'abord, nous devons décrire les règles d'une partie classique en utilisant la logique propositionnelle. Nous déterminons les conditions de toutes les **pièces** d'une grille de Tetravex **valide**.
+
+Ensuite, nous utilisons un algorithme pour combiner ces **paramètres statiques** avec notre **instance** du jeu pour créer un fichier DIMACS.
+
+Finallement, nous utilisons un SAT-Solver pour traiter le fichier DIMACS généré et test la satisfaisabilité de notre instance, ce qui nous indique si on peut résoudre la grille et **comment**.
  
-# Which SAT-Solver 
+# Quel SAT-Solver
 
-- **TO-DO :** Find which SAT-Solver to use. And how to extract the results to determine the solution of the game.
+- **SAT4j :** Nous utilisons SAT4J pour traiter nos fichier DIMACS.
 
-# Repository description
+# Description du dossier
 
-## blueprints
+## Samples
 
-This directory is made of two sub-directories
-- `tetra`   : contains every `.tetra` file used to create instances of a game.
-- `dimacs`  : contains every `.cnf` file used to describe the game using boolean logic.
+Ce dossier contient nos fichier .tetra qui définissent des instances d'une partie de Tetravex.
 
-## libraries
+## dimacs
 
-This directory contains our `.c` packages.
-
-## includes
-
-This directory contains our `.h` interfaces for every package in the libraries folder.
-
-## tests
-
-This directory contains all our executables source codes. They are used to verify the validity of our packages and algorithms.
-
-## Makefile
-
-This file is used to compile our project.
-Available commands :
-
-- `make`        : Compile all executables
-- `make clean`  : Delete every `.o` file
-- `make clear`  : Delete all executables
+Ce dossier contient les fichiers crées par le traitement des instances de Tetravex
 
 ## README
 
