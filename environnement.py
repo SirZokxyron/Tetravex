@@ -97,21 +97,9 @@ class Environnement(Grille):
             for piece_i_p in range(piece_i + 1, self.cote ** 2):
                 for i in range(self.cote):
                     for j in range(self.cote):
-                        clause_x = []
-                        clause_y = []
-
-                        clause_x.append(-(self.pieces_dispo[piece_i].bool_x[i]))
-                        clause_x.append(-(self.pieces_dispo[piece_i_p].bool_x[i]))
-                        clause_y.append(-(self.pieces_dispo[piece_i].bool_y[i]))
-                        clause_y.append(-(self.pieces_dispo[piece_i_p].bool_y[i]))
-
-                        clause_x.append(-(self.pieces_dispo[piece_i].bool_y[j]))
-                        clause_x.append(-(self.pieces_dispo[piece_i_p].bool_y[j]))
-                        clause_y.append(-(self.pieces_dispo[piece_i].bool_x[j]))
-                        clause_y.append(-(self.pieces_dispo[piece_i_p].bool_x[j]))
-
+                        clause_x = [-(self.pieces_dispo[piece_i].bool_x[i]), -(self.pieces_dispo[piece_i_p].bool_x[i]),
+                                    -(self.pieces_dispo[piece_i].bool_y[j]), -(self.pieces_dispo[piece_i_p].bool_y[j])]
                         self.ajouter_clause(clause_x)
-                        self.ajouter_clause(clause_y)
         self.logs = f'''[{dt.now().strftime("%H:%M:%S")}] La regle d'anti superposition a ete appliquee avec succes.\n'''
         self.regles = (a, True, c)
 
