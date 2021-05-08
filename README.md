@@ -46,4 +46,4 @@ Ce dossier contient les fichiers crées par le traitement des instances de Tetra
 
 ## README
 
-You are currently reading this file.
+*Pas besoin de détailler je pense...*
