@@ -178,7 +178,7 @@ class Environnement(Grille):
             self.logs = f'[{dt.now().strftime("%H:%M:%S")}] Le fichier .cnf est deja existant.\n'
             return
         f = open(f'dimacs/{self.fich[8:-6]}.cnf', "w")
-        f.write(f'p cnf {(self.cote ** 2) *  (self.cote * 2)} {len(self.clauses)}\n')
+        f.write(f'p cnf {(self.cote ** 2) * (self.cote * 2)} {len(self.clauses)}\n')
         for clause_i in self.clauses:
             for var_i in clause_i:
                 f.write(str(var_i)+" ")

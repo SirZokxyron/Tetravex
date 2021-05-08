@@ -150,19 +150,19 @@ class Grille:
 
         nombres = []
         for piece_i in range(self.cote ** 2):
-            valeurs = []
+            valeurs = [0] * 4
             page = page[page.find("side left"):]
             page = page[page.find(">"):]
-            valeurs.append(page[1])
+            valeurs[3] = page[1]
             page = page[page.find("side top"):]
             page = page[page.find(">"):]
-            valeurs.append(page[1])
+            valeurs[0] = page[1]
             page = page[page.find("side right"):]
             page = page[page.find(">"):]
-            valeurs.append(page[1])
+            valeurs[1] = page[1]
             page = page[page.find("side bottom"):]
             page = page[page.find(">"):]
-            valeurs.append(page[1])
+            valeurs[2] = page[1]
             nombres.append(valeurs)
 
         bool_courant = 1
